@@ -31,18 +31,18 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = env_var("DEBUG", False)
 
-ALLOWED_HOSTS = [
-    "chipy.org",
-    "www.chipy.org",
-    "chipy.herokuapp.com",
-    "chipy-149.herokuapp.com",
-    "localhost:8000",
-    "localhost",
-    "www.localhost:8000",
-    "www.localhost",
-]
+ALLOWED_HOSTS = ['*']
+#    "chipy.org",
+#    "www.chipy.org",
+#    "chipy.herokuapp.com",
+#    "chipy-149.herokuapp.com",
+#    "localhost:8000",
+#    "localhost",
+#    "www.localhost:8000",
+#    "www.localhost",
+#]
 
-ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", ALLOWED_HOSTS)
+# ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", ALLOWED_HOSTS)
 
 
 # tells Pinax to serve media through the staticfiles app.

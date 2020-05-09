@@ -33,5 +33,10 @@ services:
     stdin_open: true
     tty: true
 
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - 4444:4444
+
 volumes:
   pg_data:

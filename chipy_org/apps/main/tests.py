@@ -5,6 +5,9 @@ from django.test import Client
 from django.urls import reverse
 from django.conf import global_settings
 
+from selenium import webdriver
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 pytestmark = pytest.mark.django_db
 
 
@@ -43,3 +46,15 @@ def test_settingspy_env_list(monkeypatch, test_in, result):
     from chipy_org import settings  # pylint: disable=import-outside-toplevel
 
     assert settings.env_list("TEST_VAR") == result
+
+
+class SeleniumTest(TestCase):
+    def setUp(self):
+        self.browser = webdriver.Remote("http://selenium:4444/wd/hub", DesiredCapabilities.CHROME)
+
+    def tearDown(self):
+        self.browser.quit()
+
+    def test_visit_site(self):
+        self.browser.get("http://web:8000/")
+        self.assertIn(self.browser.title, "Welcome")

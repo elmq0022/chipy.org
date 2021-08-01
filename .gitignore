@@ -73,3 +73,7 @@ venv/
 
 .vscode
 htmlcov
+
+# using for code completion for local development only
+Pipfile
+Pipfile.lock
